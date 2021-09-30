@@ -45,7 +45,7 @@ class HomeController extends Controller
         if ($request->ajax()) {
             if (!empty($request->input('id'))) {
                 $hasLike = Like::where('user_id',Auth::id())->where('post_id',$request->input('id'))->count();
-                if ($hasLike > 0) {
+                if ($hasLike == 0) {
                     $input['user_id'] = Auth::id();
                     $input['post_id'] = $request->input('id');
                     Like::create($input);
