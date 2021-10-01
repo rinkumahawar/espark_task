@@ -72,7 +72,7 @@
                                                 <ul class="list-inline">
                                                     <li><a href="javascript:void(0);">{{date('D m Y', strtotime($comment->created_at))}}</a></li>
                                                     <li><a href="javascript:void(0);" class="btn btn-primary btn-sm rounded-lg" onclick="commentReply({{$comment->id}}, {{$comment->id}}, 1, this);">Reply</a></li>
-                                                     @if($comment->user_id == Auth::id())<li><a href="{{route('DeleteComment',$comment->id,1)}}" class="btn btn-primary btn-sm rounded-lg">Delete</a></li> @endif
+                                                     @if($comment->user_id == Auth::id())<li><a href="{{route('DeleteComment',['id'=>$comment->id,'type'=>1])}}" class="btn btn-primary btn-sm rounded-lg">Delete</a></li> @endif
                                                 </ul>
                                             </div>
                                             <div class="col-md-12">
@@ -92,7 +92,7 @@
                                                                         <ul class="list-inline">
                                                                             <li><a href="javascript:void(0);">{{date('D m Y', strtotime($reply->created_at))}}</a></li>
                                                                             <li><a href="javascript:void(0);" class="btn btn-primary btn-sm rounded-lg" onclick="commentReply({{$comment->id}},{{$reply->id}}, 2, this);">Reply</a></li>
-                                                                            @if($reply->user_id == Auth::id()) <li><a href="{{route('DeleteComment',$reply->id,2)}}" class="btn btn-primary btn-sm rounded-lg">Delete</a></li> @endif
+                                                                            @if($reply->user_id == Auth::id()) <li><a href="{{route('DeleteComment',['id'=>$reply->id,'type'=>2])}}" class="btn btn-primary btn-sm rounded-lg">Delete dgfgfg</a></li> @endif
                                                                         </ul>
                                                                     </div>
                                                                 </li>
