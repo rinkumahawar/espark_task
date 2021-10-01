@@ -38,4 +38,4 @@ Route::get('/post/{id}', [App\Http\Controllers\HomeController::class, 'ViewPost'
 Route::post('/PostLike', [App\Http\Controllers\HomeController::class, 'PostLike'])->name('PostLike');
 Route::post('/PostComment/{id}', [App\Http\Controllers\HomeController::class, 'PostComment'])->name('PostComment');
 Route::post('/CommentReply/{id}', [App\Http\Controllers\HomeController::class, 'CommentReply'])->name('CommentReply');
-Route::get('/DeleteComment/{id}', [App\Http\Controllers\HomeController::class, 'DeleteComment'])->name('DeleteComment');
+Route::get('/DeleteComment/{id}/{type}', [App\Http\Controllers\HomeController::class, 'DeleteComment'])->name('DeleteComment');
