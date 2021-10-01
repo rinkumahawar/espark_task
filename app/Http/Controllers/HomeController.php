@@ -120,7 +120,9 @@ class HomeController extends Controller
         if ($type == 1) {
             $res = Comment::destroy($id);
         }else{
-            $res = Reply::destroy($id);
+            $res = Reply::find($id);
+            Reply::where('reply_comment_id', $res->reply_comment_id)->delete();
+            $res->delete();
         }
         if ($res) {
             \Session::flash('success', 'Comment Delete Successfully.');
