@@ -115,8 +115,13 @@ class HomeController extends Controller
             return redirect()->back(); 
         }
     }
-    public function DeleteComment($id)
-    {   $res = Comment::destroy($id);
+    public function DeleteComment($id, $type)
+    {   
+        if ($type == 1) {
+            $res = Comment::destroy($id);
+        }else{
+            $res = Reply::destroy($id);
+        }
         if ($res) {
             \Session::flash('success', 'Comment Delete Successfully.');
         } else {
